@@ -2,6 +2,11 @@
 
 All notable changes to the "vscode-pin-up" extension will be documented in this file.
 
+## [1.4.2] - 2023-12-12
+
+- Added: manual refresh button (merged from https://github.com/ClementTurmel/vscode-pin-up/tree/feature/add-refresh-option)
+- Added: auto refresh treeview on files added/removed
+
 ## [1.4.1] - 2021-02-24
 
 - Fixed: Cancel button on remove pin icon removes the pin. (#18)

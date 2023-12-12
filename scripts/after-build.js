@@ -1,9 +1,15 @@
-import fs from "fs";
-import path from "path";
-import {
-    sync as glob
-} from "glob";
-import zip from "@tybys/cross-zip";
+// import fs from "fs";
+// import path from "path";
+// import {
+//     sync as glob
+// } from "glob";
+// import zip from "@tybys/cross-zip";
+
+const fs = require("fs");
+const path = require("path");
+const glob = require("glob").sync;
+const zip = require("@tybys/cross-zip");
+
 
 const PATH_ROOT = path.resolve(__dirname, "../");
 const PATH_TEMP = path.resolve(__dirname, "../temp");

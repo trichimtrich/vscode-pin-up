@@ -24,3 +24,9 @@ First, right click the files in the `Explorer` of the VSCode, then click the `�
 Second, find the pinned files in the `Activity Bar View` or `Explorer View`. If you can not see a view with the title of `📌 PINNED FILES`, right click the `Activity Bar` or `Explorer View Title Context` and check the `📌 PINNED FILES`.
 
 ![](./docs/usage/step-congratulations.png)
+
+## Notes
+
+- Added: manual refresh button (merged from https://github.com/ClementTurmel/vscode-pin-up/tree/feature/add-refresh-option)
+- Added: auto refresh treeview on files added/removed
+- To build: install `zip`, `unzip`, `vsce` => `npm run build`
