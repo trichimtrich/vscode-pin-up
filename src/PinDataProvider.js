@@ -200,6 +200,16 @@ class PinDataProvider {
     HavePin(filepath) {
         return (this._pinnedList.indexOf(filepath) !== -1)
     }
+
+    IsPinned(filepath) {
+        for (let i in this._pinnedList) {
+            if (filepath.startsWith(this._pinnedList[i])) {
+                return true;
+            }
+        }   
+        return false;
+    }
+   
 }
 
 module.exports = PinDataProvider;

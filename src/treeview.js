@@ -18,6 +18,34 @@ module.exports = function (context) {
         treeDataProvider: share.pindata
     });
 
+
+    const fileCreationDisposable = vscode.workspace.onDidCreateFiles((event) => {
+        // Handle file creation event
+        for (const uri of event.files) {
+            // vscode.window.showInformationMessage(`File created: ${uri.path}`);
+            if (share.pindata.IsPinned(uri.path)) {
+                share.pindata.RefreshPin(uri.path);
+                break;
+            }
+        }
+    });
+
+    // Register a file deletion event listener
+    const fileDeletionDisposable = vscode.workspace.onDidDeleteFiles((event) => {
+        // Handle file deletion event
+        for (const uri of event.files) {
+            // vscode.window.showInformationMessage(`File deleted: ${uri.path}`);
+            if (share.pindata.IsPinned(uri.path)) {
+                share.pindata.RefreshPin(uri.path);
+                break;
+            }
+        }
+    });
+
+    // Add disposables to the context to clean up when the extension is deactivated
+    context.subscriptions.push(fileCreationDisposable, fileDeletionDisposable);
+
+
     // viewActivitybarTree.title = config.ui.emoji ? "📌 Pinned Files" : "Pinned Files";
     // viewExplorerTree.title = config.ui.emoji ? "📌 Pinned Files" : "Pinned Files";
 }
